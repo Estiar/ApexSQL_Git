@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Sales].[SalesOrderHeader] (
 		[SalesOrderID]               [int] IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
 		[RevisionNumber]             [tinyint] NOT NULL,
@@ -326,6 +322,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Total due from customer. Computed as Subtotal + TaxAmt + Freight.', 'SCHEMA', N'Sales', 'TABLE', N'SalesOrderHeader', 'COLUMN', N'TotalDue'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'General sales order information.', 'SCHEMA', N'Sales', 'TABLE', N'SalesOrderHeader', NULL, NULL
-GO
-ALTER TABLE [Sales].[SalesOrderHeader] SET (LOCK_ESCALATION = TABLE)
 GO

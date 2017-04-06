@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Production].[ProductDocument] (
 		[ProductID]        [int] NOT NULL,
 		[DocumentNode]     [hierarchyid] NOT NULL,
@@ -51,6 +47,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product identification number. Foreign key to Product.ProductID.', 'SCHEMA', N'Production', 'TABLE', N'ProductDocument', 'COLUMN', N'ProductID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Cross-reference table mapping products to related product documents.', 'SCHEMA', N'Production', 'TABLE', N'ProductDocument', NULL, NULL
-GO
-ALTER TABLE [Production].[ProductDocument] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Person].[StateProvince] (
 		[StateProvinceID]             [int] IDENTITY(1, 1) NOT NULL,
 		[StateProvinceCode]           [nchar](3) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -98,6 +94,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ID of the territory in which the state or province is located. Foreign key to SalesTerritory.SalesTerritoryID.', 'SCHEMA', N'Person', 'TABLE', N'StateProvince', 'COLUMN', N'TerritoryID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'State and province lookup table.', 'SCHEMA', N'Person', 'TABLE', N'StateProvince', NULL, NULL
-GO
-ALTER TABLE [Person].[StateProvince] SET (LOCK_ESCALATION = TABLE)
 GO

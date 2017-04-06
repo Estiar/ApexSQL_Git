@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Production].[WorkOrderRouting] (
 		[WorkOrderID]            [int] NOT NULL,
 		[ProductID]              [int] NOT NULL,
@@ -139,6 +135,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key. Foreign key to WorkOrder.WorkOrderID.', 'SCHEMA', N'Production', 'TABLE', N'WorkOrderRouting', 'COLUMN', N'WorkOrderID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Work order details.', 'SCHEMA', N'Production', 'TABLE', N'WorkOrderRouting', NULL, NULL
-GO
-ALTER TABLE [Production].[WorkOrderRouting] SET (LOCK_ESCALATION = TABLE)
 GO

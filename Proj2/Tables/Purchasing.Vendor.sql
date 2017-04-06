@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Purchasing].[Vendor] (
 		[BusinessEntityID]            [int] NOT NULL,
 		[AccountNumber]               [dbo].[AccountNumber] NOT NULL,
@@ -87,6 +83,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Vendor URL.', 'SCHEMA', N'Purchasing', 'TABLE', N'Vendor', 'COLUMN', N'PurchasingWebServiceURL'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Companies from whom Adventure Works Cycles purchases parts or other goods.', 'SCHEMA', N'Purchasing', 'TABLE', N'Vendor', NULL, NULL
-GO
-ALTER TABLE [Purchasing].[Vendor] SET (LOCK_ESCALATION = TABLE)
 GO

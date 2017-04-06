@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Production].[ProductModel] (
 		[ProductModelID]         [int] IDENTITY(1, 1) NOT NULL,
 		[Name]                   [dbo].[Name] NOT NULL,
@@ -60,19 +56,13 @@ EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely iden
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product model classification.', 'SCHEMA', N'Production', 'TABLE', N'ProductModel', NULL, NULL
 GO
-SET ANSI_PADDING ON
-GO
 CREATE PRIMARY XML INDEX [PXML_ProductModel_CatalogDescription]
 	ON [Production].[ProductModel] ([CatalogDescription])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary XML index.', 'SCHEMA', N'Production', 'TABLE', N'ProductModel', 'INDEX', N'PXML_ProductModel_CatalogDescription'
 GO
-SET ANSI_PADDING ON
-GO
 CREATE PRIMARY XML INDEX [PXML_ProductModel_Instructions]
 	ON [Production].[ProductModel] ([Instructions])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary XML index.', 'SCHEMA', N'Production', 'TABLE', N'ProductModel', 'INDEX', N'PXML_ProductModel_Instructions'
-GO
-ALTER TABLE [Production].[ProductModel] SET (LOCK_ESCALATION = TABLE)
 GO

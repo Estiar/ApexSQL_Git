@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Production].[ScrapReason] (
 		[ScrapReasonID]     [smallint] IDENTITY(1, 1) NOT NULL,
 		[Name]              [dbo].[Name] NOT NULL,
@@ -37,6 +33,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key for ScrapReason records.', 'SCHEMA', N'Production', 'TABLE', N'ScrapReason', 'COLUMN', N'ScrapReasonID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Manufacturing failure reasons lookup table.', 'SCHEMA', N'Production', 'TABLE', N'ScrapReason', NULL, NULL
-GO
-ALTER TABLE [Production].[ScrapReason] SET (LOCK_ESCALATION = TABLE)
 GO

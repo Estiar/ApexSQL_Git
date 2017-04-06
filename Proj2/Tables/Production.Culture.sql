@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Production].[Culture] (
 		[CultureID]        [nchar](6) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 		[Name]             [dbo].[Name] NOT NULL,
@@ -37,6 +33,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Culture description.', 'SCHEMA', N'Production', 'TABLE', N'Culture', 'COLUMN', N'Name'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup table containing the languages in which some AdventureWorks data is stored.', 'SCHEMA', N'Production', 'TABLE', N'Culture', NULL, NULL
-GO
-ALTER TABLE [Production].[Culture] SET (LOCK_ESCALATION = TABLE)
 GO

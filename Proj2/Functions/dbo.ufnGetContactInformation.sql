@@ -1,6 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE FUNCTION [dbo].[ufnGetContactInformation](@PersonID int)
 RETURNS @retContactInformation TABLE 

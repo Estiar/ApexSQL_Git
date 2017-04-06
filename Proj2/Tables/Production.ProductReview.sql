@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Production].[ProductReview] (
 		[ProductReviewID]     [int] IDENTITY(1, 1) NOT NULL,
 		[ProductID]           [int] NOT NULL,
@@ -87,6 +83,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Name of the reviewer.', 'SCHEMA', N'Production', 'TABLE', N'ProductReview', 'COLUMN', N'ReviewerName'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Customer reviews of products they have purchased.', 'SCHEMA', N'Production', 'TABLE', N'ProductReview', NULL, NULL
-GO
-ALTER TABLE [Production].[ProductReview] SET (LOCK_ESCALATION = TABLE)
 GO

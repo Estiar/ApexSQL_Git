@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Person].[Person] (
 		[BusinessEntityID]          [int] NOT NULL,
 		[PersonType]                [nchar](2) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -125,21 +121,15 @@ EXEC sp_addextendedproperty N'MS_Description', N'A courtesy title. For example, 
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts.', 'SCHEMA', N'Person', 'TABLE', N'Person', NULL, NULL
 GO
-SET ANSI_PADDING ON
-GO
 CREATE PRIMARY XML INDEX [PXML_Person_AddContact]
 	ON [Person].[Person] ([AdditionalContactInfo])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary XML index.', 'SCHEMA', N'Person', 'TABLE', N'Person', 'INDEX', N'PXML_Person_AddContact'
 GO
-SET ANSI_PADDING ON
-GO
 CREATE PRIMARY XML INDEX [PXML_Person_Demographics]
 	ON [Person].[Person] ([Demographics])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary XML index.', 'SCHEMA', N'Person', 'TABLE', N'Person', 'INDEX', N'PXML_Person_Demographics'
-GO
-SET ANSI_PADDING ON
 GO
 CREATE XML INDEX [XMLPATH_Person_Demographics]
 	ON [Person].[Person] ([Demographics])
@@ -148,8 +138,6 @@ CREATE XML INDEX [XMLPATH_Person_Demographics]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Secondary XML index for path.', 'SCHEMA', N'Person', 'TABLE', N'Person', 'INDEX', N'XMLPATH_Person_Demographics'
 GO
-SET ANSI_PADDING ON
-GO
 CREATE XML INDEX [XMLPROPERTY_Person_Demographics]
 	ON [Person].[Person] ([Demographics])
 	USING XML INDEX [PXML_Person_Demographics]
@@ -157,14 +145,10 @@ CREATE XML INDEX [XMLPROPERTY_Person_Demographics]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Secondary XML index for property.', 'SCHEMA', N'Person', 'TABLE', N'Person', 'INDEX', N'XMLPROPERTY_Person_Demographics'
 GO
-SET ANSI_PADDING ON
-GO
 CREATE XML INDEX [XMLVALUE_Person_Demographics]
 	ON [Person].[Person] ([Demographics])
 	USING XML INDEX [PXML_Person_Demographics]
 	FOR VALUE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Secondary XML index for value.', 'SCHEMA', N'Person', 'TABLE', N'Person', 'INDEX', N'XMLVALUE_Person_Demographics'
-GO
-ALTER TABLE [Person].[Person] SET (LOCK_ESCALATION = TABLE)
 GO

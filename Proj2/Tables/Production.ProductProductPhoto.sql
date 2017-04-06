@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Production].[ProductProductPhoto] (
 		[ProductID]          [int] NOT NULL,
 		[ProductPhotoID]     [int] NOT NULL,
@@ -61,6 +57,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product photo identification number. Foreign key to ProductPhoto.ProductPhotoID.', 'SCHEMA', N'Production', 'TABLE', N'ProductProductPhoto', 'COLUMN', N'ProductPhotoID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Cross-reference table mapping products and product photos.', 'SCHEMA', N'Production', 'TABLE', N'ProductProductPhoto', NULL, NULL
-GO
-ALTER TABLE [Production].[ProductProductPhoto] SET (LOCK_ESCALATION = TABLE)
 GO

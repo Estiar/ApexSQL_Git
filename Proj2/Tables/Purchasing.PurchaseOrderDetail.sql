@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Purchasing].[PurchaseOrderDetail] (
 		[PurchaseOrderID]           [int] NOT NULL,
 		[PurchaseOrderDetailID]     [int] IDENTITY(1, 1) NOT NULL,
@@ -14,6 +10,7 @@ CREATE TABLE [Purchasing].[PurchaseOrderDetail] (
 		[RejectedQty]               [decimal](8, 2) NOT NULL,
 		[StockedQty]                AS (isnull([ReceivedQty]-[RejectedQty],(0.00))),
 		[ModifiedDate]              [datetime] NOT NULL,
+		[asd]                       [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		CONSTRAINT [PK_PurchaseOrderDetail_PurchaseOrderID_PurchaseOrderDetailID]
 		PRIMARY KEY
 		CLUSTERED
@@ -125,6 +122,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Vendor''s selling price of a single product.', 'SCHEMA', N'Purchasing', 'TABLE', N'PurchaseOrderDetail', 'COLUMN', N'UnitPrice'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Individual products associated with a specific purchase order. See PurchaseOrderHeader.', 'SCHEMA', N'Purchasing', 'TABLE', N'PurchaseOrderDetail', NULL, NULL
-GO
-ALTER TABLE [Purchasing].[PurchaseOrderDetail] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,13 +1,8 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Person].[AddressType] (
 		[AddressTypeID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Name]              [dbo].[Name] NOT NULL,
 		[rowguid]           [uniqueidentifier] NOT NULL ROWGUIDCOL,
 		[ModifiedDate]      [datetime] NOT NULL,
-		[v]                 [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		CONSTRAINT [PK_AddressType_AddressTypeID]
 		PRIMARY KEY
 		CLUSTERED
@@ -54,6 +49,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.', 'SCHEMA', N'Person', 'TABLE', N'AddressType', 'COLUMN', N'rowguid'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Types of addresses stored in the Address table. ', 'SCHEMA', N'Person', 'TABLE', N'AddressType', NULL, NULL
-GO
-ALTER TABLE [Person].[AddressType] SET (LOCK_ESCALATION = TABLE)
 GO

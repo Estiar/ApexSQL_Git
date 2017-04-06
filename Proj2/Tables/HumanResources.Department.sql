@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [HumanResources].[Department] (
 		[DepartmentID]     [smallint] IDENTITY(1, 1) NOT NULL,
 		[Name]             [dbo].[Name] NOT NULL,
@@ -40,6 +36,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Name of the department.', 'SCHEMA', N'HumanResources', 'TABLE', N'Department', 'COLUMN', N'Name'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup table containing the departments within the Adventure Works Cycles company.', 'SCHEMA', N'HumanResources', 'TABLE', N'Department', NULL, NULL
-GO
-ALTER TABLE [HumanResources].[Department] SET (LOCK_ESCALATION = TABLE)
 GO

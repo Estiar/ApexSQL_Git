@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [HumanResources].[EmployeeDepartmentHistory] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[DepartmentID]         [smallint] NOT NULL,
@@ -25,8 +21,6 @@ ALTER TABLE [HumanResources].[EmployeeDepartmentHistory]
 	CONSTRAINT [CK_EmployeeDepartmentHistory_EndDate]
 	CHECK
 	([EndDate]>=[StartDate] OR [EndDate] IS NULL)
-GO
-EXEC sp_addextendedproperty N'MS_Description', N'Check constraint [EndDate] >= [StartDate] OR [EndDate] IS NUL', 'SCHEMA', N'HumanResources', 'TABLE', N'EmployeeDepartmentHistory', 'CONSTRAINT', N'CK_EmployeeDepartmentHistory_EndDate'
 GO
 ALTER TABLE [HumanResources].[EmployeeDepartmentHistory]
 CHECK CONSTRAINT [CK_EmployeeDepartmentHistory_EndDate]
@@ -93,6 +87,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date the employee started work in the department.', 'SCHEMA', N'HumanResources', 'TABLE', N'EmployeeDepartmentHistory', 'COLUMN', N'StartDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Employee department transfers.', 'SCHEMA', N'HumanResources', 'TABLE', N'EmployeeDepartmentHistory', NULL, NULL
-GO
-ALTER TABLE [HumanResources].[EmployeeDepartmentHistory] SET (LOCK_ESCALATION = TABLE)
 GO

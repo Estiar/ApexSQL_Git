@@ -1,6 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-GO
 
 -- uspPrintError prints error information about the error that caused 
 -- execution to jump to the CATCH block of a TRY...CATCH construct. 

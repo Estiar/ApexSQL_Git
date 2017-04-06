@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Sales].[SalesPersonQuotaHistory] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[QuotaDate]            [datetime] NOT NULL,
@@ -71,6 +67,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Sales quota amount.', 'SCHEMA', N'Sales', 'TABLE', N'SalesPersonQuotaHistory', 'COLUMN', N'SalesQuota'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Sales performance tracking.', 'SCHEMA', N'Sales', 'TABLE', N'SalesPersonQuotaHistory', NULL, NULL
-GO
-ALTER TABLE [Sales].[SalesPersonQuotaHistory] SET (LOCK_ESCALATION = TABLE)
 GO

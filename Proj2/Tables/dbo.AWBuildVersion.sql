@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [dbo].[AWBuildVersion] (
 		[SystemInformationID]     [tinyint] IDENTITY(1, 1) NOT NULL,
 		[Database Version]        [nvarchar](25) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -34,6 +30,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date and time the record was last updated.', 'SCHEMA', N'dbo', 'TABLE', N'AWBuildVersion', 'COLUMN', N'VersionDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Current version number of the AdventureWorks 2014 sample database. ', 'SCHEMA', N'dbo', 'TABLE', N'AWBuildVersion', NULL, NULL
-GO
-ALTER TABLE [dbo].[AWBuildVersion] SET (LOCK_ESCALATION = TABLE)
 GO

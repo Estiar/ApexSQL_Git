@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Purchasing].[ProductVendor] (
 		[ProductID]            [int] NOT NULL,
 		[BusinessEntityID]     [int] NOT NULL,
@@ -163,6 +159,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'The product''s unit of measure.', 'SCHEMA', N'Purchasing', 'TABLE', N'ProductVendor', 'COLUMN', N'UnitMeasureCode'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Cross-reference table mapping vendors with the products they supply.', 'SCHEMA', N'Purchasing', 'TABLE', N'ProductVendor', NULL, NULL
-GO
-ALTER TABLE [Purchasing].[ProductVendor] SET (LOCK_ESCALATION = TABLE)
 GO

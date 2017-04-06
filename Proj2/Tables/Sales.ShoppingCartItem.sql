@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Sales].[ShoppingCartItem] (
 		[ShoppingCartItemID]     [int] IDENTITY(1, 1) NOT NULL,
 		[ShoppingCartID]         [nvarchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -81,6 +77,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key for ShoppingCartItem records.', 'SCHEMA', N'Sales', 'TABLE', N'ShoppingCartItem', 'COLUMN', N'ShoppingCartItemID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Contains online customer orders until the order is submitted or cancelled.', 'SCHEMA', N'Sales', 'TABLE', N'ShoppingCartItem', NULL, NULL
-GO
-ALTER TABLE [Sales].[ShoppingCartItem] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,13 +1,10 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [HumanResources].[EmployeePayHistory] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[RateChangeDate]       [datetime] NOT NULL,
 		[Rate]                 [money] NOT NULL,
 		[PayFrequency]         [tinyint] NOT NULL,
 		[ModifiedDate]         [datetime] NOT NULL,
+		[zxc]                  [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		CONSTRAINT [PK_EmployeePayHistory_BusinessEntityID_RateChangeDate]
 		PRIMARY KEY
 		CLUSTERED
@@ -69,6 +66,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date the change in pay is effective', 'SCHEMA', N'HumanResources', 'TABLE', N'EmployeePayHistory', 'COLUMN', N'RateChangeDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Employee pay history.', 'SCHEMA', N'HumanResources', 'TABLE', N'EmployeePayHistory', NULL, NULL
-GO
-ALTER TABLE [HumanResources].[EmployeePayHistory] SET (LOCK_ESCALATION = TABLE)
 GO

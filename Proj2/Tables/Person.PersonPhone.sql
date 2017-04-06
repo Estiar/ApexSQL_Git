@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Person].[PersonPhone] (
 		[BusinessEntityID]      [int] NOT NULL,
 		[PhoneNumber]           [dbo].[Phone] NOT NULL,
@@ -23,6 +19,8 @@ ALTER TABLE [Person].[PersonPhone]
 	CONSTRAINT [DF_PersonPhone_ModifiedDate]
 	DEFAULT (getdate()) FOR [ModifiedDate]
 GO
+EXEC sp_addextendedproperty N'MS_Description', N'Default constraint value of GETDATE()', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', 'CONSTRAINT', N'DF_PersonPhone_ModifiedDate'
+GO
 ALTER TABLE [Person].[PersonPhone]
 	WITH CHECK
 	ADD CONSTRAINT [FK_PersonPhone_Person_BusinessEntityID]
@@ -31,6 +29,8 @@ ALTER TABLE [Person].[PersonPhone]
 	CHECK CONSTRAINT [FK_PersonPhone_Person_BusinessEntityID]
 
 GO
+EXEC sp_addextendedproperty N'MS_Description', N'Foreign key constraint referencing Person.BusinessEntityID.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', 'CONSTRAINT', N'FK_PersonPhone_Person_BusinessEntityID'
+GO
 ALTER TABLE [Person].[PersonPhone]
 	WITH CHECK
 	ADD CONSTRAINT [FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID]
@@ -38,6 +38,8 @@ ALTER TABLE [Person].[PersonPhone]
 ALTER TABLE [Person].[PersonPhone]
 	CHECK CONSTRAINT [FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID]
 
+GO
+EXEC sp_addextendedproperty N'MS_Description', N'Foreign key constraint referencing PhoneNumberType.PhoneNumberTypeID.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', 'CONSTRAINT', N'FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID'
 GO
 CREATE NONCLUSTERED INDEX [IX_PersonPhone_PhoneNumber]
 	ON [Person].[PersonPhone] ([PhoneNumber])
@@ -54,6 +56,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Kind of phone number. Foreign key to PhoneNumberType.PhoneNumberTypeID.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', 'COLUMN', N'PhoneNumberTypeID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Telephone number and type of a person.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', NULL, NULL
-GO
-ALTER TABLE [Person].[PersonPhone] SET (LOCK_ESCALATION = TABLE)
 GO

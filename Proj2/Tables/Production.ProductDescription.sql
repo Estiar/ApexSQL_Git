@@ -1,12 +1,9 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Production].[ProductDescription] (
 		[ProductDescriptionID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Description]              [nvarchar](400) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 		[rowguid]                  [uniqueidentifier] NOT NULL ROWGUIDCOL,
 		[ModifiedDate]             [datetime] NOT NULL,
+		[asd]                      [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		CONSTRAINT [PK_ProductDescription_ProductDescriptionID]
 		PRIMARY KEY
 		CLUSTERED
@@ -47,6 +44,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.', 'SCHEMA', N'Production', 'TABLE', N'ProductDescription', 'COLUMN', N'rowguid'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product descriptions in several languages.', 'SCHEMA', N'Production', 'TABLE', N'ProductDescription', NULL, NULL
-GO
-ALTER TABLE [Production].[ProductDescription] SET (LOCK_ESCALATION = TABLE)
 GO

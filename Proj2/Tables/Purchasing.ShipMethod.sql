@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Purchasing].[ShipMethod] (
 		[ShipMethodID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Name]             [dbo].[Name] NOT NULL,
@@ -95,6 +91,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Shipping charge per pound.', 'SCHEMA', N'Purchasing', 'TABLE', N'ShipMethod', 'COLUMN', N'ShipRate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Shipping company lookup table.', 'SCHEMA', N'Purchasing', 'TABLE', N'ShipMethod', NULL, NULL
-GO
-ALTER TABLE [Purchasing].[ShipMethod] SET (LOCK_ESCALATION = TABLE)
 GO

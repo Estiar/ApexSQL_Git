@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Sales].[SalesPerson] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[TerritoryID]          [int] NULL,
@@ -165,6 +161,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Territory currently assigned to. Foreign key to SalesTerritory.SalesTerritoryID.', 'SCHEMA', N'Sales', 'TABLE', N'SalesPerson', 'COLUMN', N'TerritoryID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Sales representative current information.', 'SCHEMA', N'Sales', 'TABLE', N'SalesPerson', NULL, NULL
-GO
-ALTER TABLE [Sales].[SalesPerson] SET (LOCK_ESCALATION = TABLE)
 GO

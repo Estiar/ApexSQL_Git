@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [HumanResources].[Employee] (
 		[BusinessEntityID]      [int] NOT NULL,
 		[NationalIDNumber]      [nvarchar](15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -31,6 +27,7 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Clustered index created by a primary key constraint.', 'SCHEMA', N'HumanResources', 'TABLE', N'Employee', 'INDEX', N'PK_Employee_BusinessEntityID'
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_BirthDate]
 	CHECK
@@ -42,6 +39,7 @@ ALTER TABLE [HumanResources].[Employee]
 CHECK CONSTRAINT [CK_Employee_BirthDate]
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_Gender]
 	CHECK
@@ -53,6 +51,7 @@ ALTER TABLE [HumanResources].[Employee]
 CHECK CONSTRAINT [CK_Employee_Gender]
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_HireDate]
 	CHECK
@@ -64,6 +63,7 @@ ALTER TABLE [HumanResources].[Employee]
 CHECK CONSTRAINT [CK_Employee_HireDate]
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_MaritalStatus]
 	CHECK
@@ -75,6 +75,7 @@ ALTER TABLE [HumanResources].[Employee]
 CHECK CONSTRAINT [CK_Employee_MaritalStatus]
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_SickLeaveHours]
 	CHECK
@@ -86,6 +87,7 @@ ALTER TABLE [HumanResources].[Employee]
 CHECK CONSTRAINT [CK_Employee_SickLeaveHours]
 GO
 ALTER TABLE [HumanResources].[Employee]
+	WITH NOCHECK
 	ADD
 	CONSTRAINT [CK_Employee_VacationHours]
 	CHECK
@@ -211,6 +213,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Number of available vacation hours.', 'SCHEMA', N'HumanResources', 'TABLE', N'Employee', 'COLUMN', N'VacationHours'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Employee information such as salary, department, and title.', 'SCHEMA', N'HumanResources', 'TABLE', N'Employee', NULL, NULL
-GO
-ALTER TABLE [HumanResources].[Employee] SET (LOCK_ESCALATION = TABLE)
 GO

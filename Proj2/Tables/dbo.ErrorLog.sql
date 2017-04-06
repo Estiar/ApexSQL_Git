@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [dbo].[ErrorLog] (
 		[ErrorLogID]         [int] IDENTITY(1, 1) NOT NULL,
 		[ErrorTime]          [datetime] NOT NULL,
@@ -49,6 +45,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'The user who executed the batch in which the error occurred.', 'SCHEMA', N'dbo', 'TABLE', N'ErrorLog', 'COLUMN', N'UserName'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Audit table tracking errors in the the AdventureWorks database that are caught by the CATCH block of a TRY...CATCH construct. Data is inserted by stored procedure dbo.uspLogError when it is executed from inside the CATCH block of a TRY...CATCH construct.', 'SCHEMA', N'dbo', 'TABLE', N'ErrorLog', NULL, NULL
-GO
-ALTER TABLE [dbo].[ErrorLog] SET (LOCK_ESCALATION = TABLE)
 GO

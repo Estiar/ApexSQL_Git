@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Sales].[Store] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[Name]                 [dbo].[Name] NOT NULL,
@@ -80,12 +76,8 @@ EXEC sp_addextendedproperty N'MS_Description', N'ID of the sales person assigned
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Customers (resellers) of Adventure Works products.', 'SCHEMA', N'Sales', 'TABLE', N'Store', NULL, NULL
 GO
-SET ANSI_PADDING ON
-GO
 CREATE PRIMARY XML INDEX [PXML_Store_Demographics]
 	ON [Sales].[Store] ([Demographics])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary XML index.', 'SCHEMA', N'Sales', 'TABLE', N'Store', 'INDEX', N'PXML_Store_Demographics'
-GO
-ALTER TABLE [Sales].[Store] SET (LOCK_ESCALATION = TABLE)
 GO

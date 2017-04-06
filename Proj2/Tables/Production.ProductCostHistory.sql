@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING OFF
-GO
 CREATE TABLE [Production].[ProductCostHistory] (
 		[ProductID]        [int] NOT NULL,
 		[StartDate]        [datetime] NOT NULL,
@@ -69,6 +65,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product cost start date.', 'SCHEMA', N'Production', 'TABLE', N'ProductCostHistory', 'COLUMN', N'StartDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Changes in the cost of a product over time.', 'SCHEMA', N'Production', 'TABLE', N'ProductCostHistory', NULL, NULL
-GO
-ALTER TABLE [Production].[ProductCostHistory] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,7 +1,3 @@
-SET ANSI_NULLS ON
-SET QUOTED_IDENTIFIER ON
-SET ANSI_PADDING ON
-GO
 CREATE TABLE [Person].[ContactType] (
 		[ContactTypeID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Name]              [dbo].[Name] NOT NULL,
@@ -37,6 +33,4 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Contact type description.', 'SCHEMA', N'Person', 'TABLE', N'ContactType', 'COLUMN', N'Name'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup table containing the types of business entity contacts.', 'SCHEMA', N'Person', 'TABLE', N'ContactType', NULL, NULL
-GO
-ALTER TABLE [Person].[ContactType] SET (LOCK_ESCALATION = TABLE)
 GO
