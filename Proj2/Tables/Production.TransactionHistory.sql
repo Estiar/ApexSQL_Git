@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[TransactionHistory] (
 		[TransactionID]            [int] IDENTITY(100000, 1) NOT NULL,
 		[ProductID]                [int] NOT NULL,
@@ -92,4 +96,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'W = WorkOrder, S = SalesOrder, P = PurchaseOrder', 'SCHEMA', N'Production', 'TABLE', N'TransactionHistory', 'COLUMN', N'TransactionType'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Record of each purchase order, sales order, or work order transaction year to date.', 'SCHEMA', N'Production', 'TABLE', N'TransactionHistory', NULL, NULL
+GO
+ALTER TABLE [Production].[TransactionHistory] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[Product] (
 		[ProductID]                 [int] IDENTITY(1, 1) NOT NULL,
 		[Name]                      [dbo].[Name] NOT NULL,
@@ -282,4 +286,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Unit of measure for Weight column.', 'SCHEMA', N'Production', 'TABLE', N'Product', 'COLUMN', N'WeightUnitMeasureCode'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Products sold or used in the manfacturing of sold products.', 'SCHEMA', N'Production', 'TABLE', N'Product', NULL, NULL
+GO
+ALTER TABLE [Production].[Product] SET (LOCK_ESCALATION = TABLE)
 GO

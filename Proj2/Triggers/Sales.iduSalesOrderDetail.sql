@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TRIGGER [Sales].[iduSalesOrderDetail] ON [Sales].[SalesOrderDetail] 
 AFTER INSERT, DELETE, UPDATE AS 

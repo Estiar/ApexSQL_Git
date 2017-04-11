@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TRIGGER [Purchasing].[iPurchaseOrderDetail] ON [Purchasing].[PurchaseOrderDetail] 
 AFTER INSERT AS

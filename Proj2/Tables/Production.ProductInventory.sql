@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[ProductInventory] (
 		[ProductID]        [int] NOT NULL,
 		[LocationID]       [smallint] NOT NULL,
@@ -95,4 +99,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Storage compartment within an inventory location.', 'SCHEMA', N'Production', 'TABLE', N'ProductInventory', 'COLUMN', N'Shelf'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product inventory information.', 'SCHEMA', N'Production', 'TABLE', N'ProductInventory', NULL, NULL
+GO
+ALTER TABLE [Production].[ProductInventory] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TRIGGER [Production].[iWorkOrder] ON [Production].[WorkOrder] 
 AFTER INSERT AS 

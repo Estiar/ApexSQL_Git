@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE TRIGGER [Purchasing].[uPurchaseOrderHeader] ON [Purchasing].[PurchaseOrderHeader] 
 AFTER UPDATE AS 

@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Person].[PersonPhone] (
 		[BusinessEntityID]      [int] NOT NULL,
 		[PhoneNumber]           [dbo].[Phone] NOT NULL,
@@ -56,4 +60,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Kind of phone number. Foreign key to PhoneNumberType.PhoneNumberTypeID.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', 'COLUMN', N'PhoneNumberTypeID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Telephone number and type of a person.', 'SCHEMA', N'Person', 'TABLE', N'PersonPhone', NULL, NULL
+GO
+ALTER TABLE [Person].[PersonPhone] SET (LOCK_ESCALATION = TABLE)
 GO

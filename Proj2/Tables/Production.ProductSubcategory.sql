@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[ProductSubcategory] (
 		[ProductSubcategoryID]     [int] IDENTITY(1, 1) NOT NULL,
 		[ProductCategoryID]        [int] NOT NULL,
@@ -62,4 +66,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.', 'SCHEMA', N'Production', 'TABLE', N'ProductSubcategory', 'COLUMN', N'rowguid'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product subcategories. See ProductCategory table.', 'SCHEMA', N'Production', 'TABLE', N'ProductSubcategory', NULL, NULL
+GO
+ALTER TABLE [Production].[ProductSubcategory] SET (LOCK_ESCALATION = TABLE)
 GO

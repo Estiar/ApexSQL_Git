@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [HumanResources].[Shift] (
 		[ShiftID]          [tinyint] IDENTITY(1, 1) NOT NULL,
 		[Name]             [dbo].[Name] NOT NULL,
@@ -45,4 +49,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Shift start time.', 'SCHEMA', N'HumanResources', 'TABLE', N'Shift', 'COLUMN', N'StartTime'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Work shift lookup table.', 'SCHEMA', N'HumanResources', 'TABLE', N'Shift', NULL, NULL
+GO
+ALTER TABLE [HumanResources].[Shift] SET (LOCK_ESCALATION = TABLE)
 GO

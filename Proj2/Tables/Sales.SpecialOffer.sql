@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[SpecialOffer] (
 		[SpecialOfferID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Description]        [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -122,4 +126,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Discount type category.', 'SCHEMA', N'Sales', 'TABLE', N'SpecialOffer', 'COLUMN', N'Type'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Sale discounts lookup table.', 'SCHEMA', N'Sales', 'TABLE', N'SpecialOffer', NULL, NULL
+GO
+ALTER TABLE [Sales].[SpecialOffer] SET (LOCK_ESCALATION = TABLE)
 GO

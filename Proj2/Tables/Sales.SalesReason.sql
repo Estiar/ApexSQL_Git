@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[SalesReason] (
 		[SalesReasonID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Name]              [dbo].[Name] NOT NULL,
@@ -30,4 +34,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key for SalesReason records.', 'SCHEMA', N'Sales', 'TABLE', N'SalesReason', 'COLUMN', N'SalesReasonID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup table of customer purchase reasons.', 'SCHEMA', N'Sales', 'TABLE', N'SalesReason', NULL, NULL
+GO
+ALTER TABLE [Sales].[SalesReason] SET (LOCK_ESCALATION = TABLE)
 GO

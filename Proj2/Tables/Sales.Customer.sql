@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[Customer] (
 		[CustomerID]        [int] IDENTITY(1, 1) NOT FOR REPLICATION NOT NULL,
 		[PersonID]          [int] NULL,
@@ -94,4 +98,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.', 'SCHEMA', N'Sales', 'TABLE', N'Customer', 'COLUMN', N'TerritoryID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Current customer information. Also see the Person and Store tables.', 'SCHEMA', N'Sales', 'TABLE', N'Customer', NULL, NULL
+GO
+ALTER TABLE [Sales].[Customer] SET (LOCK_ESCALATION = TABLE)
 GO

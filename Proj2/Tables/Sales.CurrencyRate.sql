@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[CurrencyRate] (
 		[CurrencyRateID]       [int] IDENTITY(1, 1) NOT NULL,
 		[CurrencyRateDate]     [datetime] NOT NULL,
@@ -65,4 +69,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Exchange rate was converted to this currency code.', 'SCHEMA', N'Sales', 'TABLE', N'CurrencyRate', 'COLUMN', N'ToCurrencyCode'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Currency exchange rates.', 'SCHEMA', N'Sales', 'TABLE', N'CurrencyRate', NULL, NULL
+GO
+ALTER TABLE [Sales].[CurrencyRate] SET (LOCK_ESCALATION = TABLE)
 GO

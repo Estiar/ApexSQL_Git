@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING OFF
+GO
 CREATE TABLE [HumanResources].[JobCandidate] (
 		[JobCandidateID]       [int] IDENTITY(1, 1) NOT NULL,
 		[BusinessEntityID]     [int] NULL,
@@ -52,4 +56,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Résumé in XML format.', 'SCHEMA', N'HumanResources', 'TABLE', N'JobCandidate', 'COLUMN', N'Resume'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Résumés submitted to Human Resources by job applicants.', 'SCHEMA', N'HumanResources', 'TABLE', N'JobCandidate', NULL, NULL
+GO
+ALTER TABLE [HumanResources].[JobCandidate] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[Illustration] (
 		[IllustrationID]     [int] IDENTITY(1, 1) NOT NULL,
 		[Diagram]            [xml] NULL,
@@ -28,4 +32,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date and time the record was last updated.', 'SCHEMA', N'Production', 'TABLE', N'Illustration', 'COLUMN', N'ModifiedDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Bicycle assembly diagrams.', 'SCHEMA', N'Production', 'TABLE', N'Illustration', NULL, NULL
+GO
+ALTER TABLE [Production].[Illustration] SET (LOCK_ESCALATION = TABLE)
 GO

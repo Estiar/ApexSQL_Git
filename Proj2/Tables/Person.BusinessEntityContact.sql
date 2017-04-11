@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING OFF
+GO
 CREATE TABLE [Person].[BusinessEntityContact] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[PersonID]             [int] NOT NULL,
@@ -88,4 +92,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.', 'SCHEMA', N'Person', 'TABLE', N'BusinessEntityContact', 'COLUMN', N'rowguid'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Cross-reference table mapping stores, vendors, and employees to people', 'SCHEMA', N'Person', 'TABLE', N'BusinessEntityContact', NULL, NULL
+GO
+ALTER TABLE [Person].[BusinessEntityContact] SET (LOCK_ESCALATION = TABLE)
 GO

@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[Document] (
 		[DocumentNode]        [hierarchyid] NOT NULL,
 		[DocumentLevel]       AS ([DocumentNode].[GetLevel]()),
@@ -129,4 +133,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Title of the document.', 'SCHEMA', N'Production', 'TABLE', N'Document', 'COLUMN', N'Title'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product maintenance documents.', 'SCHEMA', N'Production', 'TABLE', N'Document', NULL, NULL
+GO
+ALTER TABLE [Production].[Document] SET (LOCK_ESCALATION = TABLE)
 GO

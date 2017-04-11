@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[SalesTerritory] (
 		[TerritoryID]           [int] IDENTITY(1, 1) NOT NULL,
 		[Name]                  [dbo].[Name] NOT NULL,
@@ -149,4 +153,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key for SalesTerritory records.', 'SCHEMA', N'Sales', 'TABLE', N'SalesTerritory', 'COLUMN', N'TerritoryID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Sales territory lookup table.', 'SCHEMA', N'Sales', 'TABLE', N'SalesTerritory', NULL, NULL
+GO
+ALTER TABLE [Sales].[SalesTerritory] SET (LOCK_ESCALATION = TABLE)
 GO

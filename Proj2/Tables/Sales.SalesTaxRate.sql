@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Sales].[SalesTaxRate] (
 		[SalesTaxRateID]      [int] IDENTITY(1, 1) NOT NULL,
 		[StateProvinceID]     [int] NOT NULL,
@@ -86,4 +90,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'1 = Tax applied to retail transactions, 2 = Tax applied to wholesale transactions, 3 = Tax applied to all sales (retail and wholesale) transactions.', 'SCHEMA', N'Sales', 'TABLE', N'SalesTaxRate', 'COLUMN', N'TaxType'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Tax rate lookup table.', 'SCHEMA', N'Sales', 'TABLE', N'SalesTaxRate', NULL, NULL
+GO
+ALTER TABLE [Sales].[SalesTaxRate] SET (LOCK_ESCALATION = TABLE)
 GO

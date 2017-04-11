@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[ProductPhoto] (
 		[ProductPhotoID]             [int] IDENTITY(1, 1) NOT NULL,
 		[ThumbNailPhoto]             [varbinary](max) NULL,
@@ -36,4 +40,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Small image file name.', 'SCHEMA', N'Production', 'TABLE', N'ProductPhoto', 'COLUMN', N'ThumbnailPhotoFileName'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product images.', 'SCHEMA', N'Production', 'TABLE', N'ProductPhoto', NULL, NULL
+GO
+ALTER TABLE [Production].[ProductPhoto] SET (LOCK_ESCALATION = TABLE)
 GO

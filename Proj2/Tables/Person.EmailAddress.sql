@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Person].[EmailAddress] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[EmailAddressID]       [int] IDENTITY(1, 1) NOT NULL,
@@ -56,4 +60,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.', 'SCHEMA', N'Person', 'TABLE', N'EmailAddress', 'COLUMN', N'rowguid'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Where to send a person email.', 'SCHEMA', N'Person', 'TABLE', N'EmailAddress', NULL, NULL
+GO
+ALTER TABLE [Person].[EmailAddress] SET (LOCK_ESCALATION = TABLE)
 GO

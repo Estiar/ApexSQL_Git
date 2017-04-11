@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[BillOfMaterials] (
 		[BillOfMaterialsID]     [int] IDENTITY(1, 1) NOT NULL,
 		[ProductAssemblyID]     [int] NULL,
@@ -145,4 +149,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Standard code identifying the unit of measure for the quantity.', 'SCHEMA', N'Production', 'TABLE', N'BillOfMaterials', 'COLUMN', N'UnitMeasureCode'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Items required to make bicycles and bicycle subassemblies. It identifies the heirarchical relationship between a parent product and its components.', 'SCHEMA', N'Production', 'TABLE', N'BillOfMaterials', NULL, NULL
+GO
+ALTER TABLE [Production].[BillOfMaterials] SET (LOCK_ESCALATION = TABLE)
 GO

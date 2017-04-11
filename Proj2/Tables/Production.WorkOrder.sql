@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [Production].[WorkOrder] (
 		[WorkOrderID]       [int] IDENTITY(1, 1) NOT NULL,
 		[ProductID]         [int] NOT NULL,
@@ -113,4 +117,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Primary key for WorkOrder records.', 'SCHEMA', N'Production', 'TABLE', N'WorkOrder', 'COLUMN', N'WorkOrderID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Manufacturing work orders.', 'SCHEMA', N'Production', 'TABLE', N'WorkOrder', NULL, NULL
+GO
+ALTER TABLE [Production].[WorkOrder] SET (LOCK_ESCALATION = TABLE)
 GO

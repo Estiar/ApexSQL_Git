@@ -1,3 +1,6 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 CREATE FUNCTION [dbo].[ufnGetStock](@ProductID [int])
 RETURNS [int] 

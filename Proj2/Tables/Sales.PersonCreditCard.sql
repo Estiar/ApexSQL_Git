@@ -1,3 +1,7 @@
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+SET ANSI_PADDING OFF
+GO
 CREATE TABLE [Sales].[PersonCreditCard] (
 		[BusinessEntityID]     [int] NOT NULL,
 		[CreditCardID]         [int] NOT NULL,
@@ -47,4 +51,6 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date and time the record was last updated.', 'SCHEMA', N'Sales', 'TABLE', N'PersonCreditCard', 'COLUMN', N'ModifiedDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Cross-reference table mapping people to their credit card information in the CreditCard table. ', 'SCHEMA', N'Sales', 'TABLE', N'PersonCreditCard', NULL, NULL
+GO
+ALTER TABLE [Sales].[PersonCreditCard] SET (LOCK_ESCALATION = TABLE)
 GO
